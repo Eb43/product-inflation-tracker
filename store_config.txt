@@ -1,0 +1,148 @@
+﻿STORE = Walmart
+COUNTRY = USA
+PRODUCT = Bread
+
+TITLE = [
+<span data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l lh-copy">FFF</span>
+]
+
+PRICE = [
+<span class="w_iUH7">current price FFF</span>
+]
+
+CURRENCY_MAP = ["$": "USD"]
+
+URLS = [
+cheapest: https://www.walmart.com/search?q=bread&sort=price_low
+most_expensive: 
+]
+
+
+STORE = ATB Market
+COUNTRY = Ukraine
+PRODUCT = Bread
+
+TITLE = [
+<div class="catalog-item__title">
+  <a>FFF</a>
+</div>
+]
+
+PRICE = [
+<div class="catalog-item__product-price product-price product-price--weight ">
+  <data class="product-price__top">
+    <span>FFF<span class="product-price__coin">FFF</span></span>
+]
+
+CURRENCY_MAP = ["грн": "ГРН"]
+
+URLS = [
+cheapest: https://www.atbmarket.com/sch?lang=uk&location=1154&query=%D1%85%D0%BB%D1%96%D0%B1&sort=price
+most_expensive: https://www.atbmarket.com/sch?lang=uk&location=1154&query=%D1%85%D0%BB%D1%96%D0%B1&sort=-price
+]
+
+===
+
+STORE = No Frills
+COUNTRY = Canada
+PRODUCT = Bread
+
+TITLE = [
+<p class="chakra-text css-1ecdp9w" data-testid="product-brand">FFF</p><h3 class="chakra-heading css-6qrhwc"  data-testid="product-title">FFF</h3><p class="chakra-text css-1yftjin" data-testid="product-package-size">FFF</p>
+]
+
+PRICE = [
+<span class="chakra-text css-pwnbcb" data-testid="regular-price">FFF</span>
+]
+
+CURRENCY_MAP = ["$": "CAD"]
+
+URLS = [
+cheapest: https://www.nofrills.ca/en/search?search-bar=bread&sort=price-asc&page=1&category=27985&category=28002
+most_expensive: https://www.nofrills.ca/en/search?search-bar=bread&sort=price-desc&page=1&category=27985&category=28002
+]
+
+===
+
+STORE = HEB
+COUNTRY = Mexico
+PRODUCT = Bread
+
+TITLE = [
+<span class="vtex-product-summary-2-x-productBrand vtex-product-summary-2-x-brandName t-body">FFF</span>
+]
+
+PRICE = [
+<div class="price-shelf vtex-price-shelf">FFF</div>
+]
+
+CURRENCY_MAP = ["$": "MXN"]
+
+URLS = [
+cheapest: https://www.heb.com.mx/pan-empacado/pan-blanco?order=OrderByPriceASC
+most_expensive: 
+]
+
+===
+
+STORE = Albert
+COUNTRY = Czech
+PRODUCT = Bread
+
+TITLE = [
+<span data-testid="product-name">FFF</span></a></h3></div><div data-testid="product-block-attributes" class="sc-y4jrw3-17 dOeTzF"><div class="sc-y4jrw3-20 hCUcoG"><div class="sc-y4jrw3-21 iojmEA"><div data-testid="product-block-supplementary-price-2" class="sc-dqia0p-0 fLKnrn">FFF</div>•<div data-testid="product-block-price-per-unit" type="normal" class="sc-dqia0p-3 kGnDnm">FFF</div>
+]
+
+PRICE = [
+<div class="sc-dqia0p-9 dsNELN">FFF</div><sup class="sc-dqia0p-10 fjOrrj">FFF </sup><div class="sc-dqia0p-8 kyoGRo">FFF</div>
+]
+
+CURRENCY_MAP = ["Kč": "CZK"]
+
+URLS = [
+cheapest: https://www.albert.cz/search-results?q=chl%C3%A9b%3Aprice-asc%3AfirstLevelCategories%3AzeF001&text=chl%C3%A9b%20&sort=price-asc
+most_expensive: 
+]
+
+===
+
+STORE = Billa
+COUNTRY = Austria
+PRODUCT = Bread
+
+TITLE = [
+<div class="ws-product-information-wrapper__title-wrapper text-base-color"><h3 class="ws-product-title h3" data-test="product-title" data-v-7a123307="">FFF</h3></div>
+<ul class="ws-product-information__piece-description ws-dot-separated-list text-base-color" data-test="product-information-piece-description" role="list"><!----><!--[--><li>FFF Stück</li>
+]
+
+PRICE = [
+<div style="" class="ws-product-price-type__value text-regular-price h3">FFF&nbsp;€</div>
+]
+
+CURRENCY_MAP = ["€": "EUR"]
+
+URLS = [
+cheapest: https://shop.billa.at/kategorie/brot-verpackt-13771?sortBy=price&sortOrder=asc
+most_expensive: 
+]
+
+===
+
+STORE = HIPERCOR
+COUNTRY = Spain
+PRODUCT = Bread
+
+TITLE = [
+<a class="link event js-product-link" data-event="product_click" >FFF <span class="product_tile-temporal_description"></span></a>
+]
+
+PRICE = [
+<div class="prices-price _current"><span>FFF</span>FFF<span>FFF</span> <span class="js-currency">€</span></div>
+]
+
+CURRENCY_MAP = ["€": "EUR"]
+
+URLS = [
+cheapest: https://www.hipercor.es/supermercado/desayunos-dulces-y-pan/pan/pan-de-molde-blanco/?sort=priceAsc
+most_expensive: 
+]
