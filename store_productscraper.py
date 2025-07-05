@@ -60,7 +60,7 @@ def fetch_page_requests(url):
 
 def fetch_page_selenium(url):
     firefox_options = FirefoxOptions()
-    firefox_options.binary_location = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\firefox.exe" 
+    firefox_options.binary_location = r"d:\Mozilla Firefox-For-Selenium\firefox.exe" 
     #firefox_options.add_argument("--headless")
     firefox_options.set_capability("moz:webdriverClick", False)
     
@@ -68,7 +68,7 @@ def fetch_page_selenium(url):
     firefox_options.set_preference("network.cookie.lifetimePolicy", 0)
     #firefox_options.set_preference("network.cookie.cookieBehavior", 0)
     
-    profile_path = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
+    profile_path = r"d:\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
     firefox_options.add_argument(f'--profile')
     firefox_options.add_argument(profile_path)
     
