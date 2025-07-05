@@ -57,7 +57,7 @@ Prices split across multiple nested HTML elements requiring complex parsing:
 ### Core Components
 
 1. **Template-Based HTML Parser**: Flexible extraction system using HTML templates with "FFF" placeholders
-2. **Selenium WebDriver Integration**: Real browser automation to bypass anti-bot measures
+2. **Selenium WebDriver Integration**: Real browser automation to bypass anti-bot measures. GeckoDriver is usehttps://github.com/mozilla/geckodriver/releasesd
 3. **Multi-Store Configuration**: Support for different store layouts through configuration files
 4. **Database Management**: SQLite-based storage with proper normalization
 5. **Inflation Calculator**: Automated calculation of price change rates over time
