@@ -438,5 +438,13 @@
     "store_name": "Arbuz",
     "store_country": "Kazakhstan",
     "price_per_unit_string": "993.33 KZT/kg"
+  },
+  {
+    "date": "2025-08-09",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Auchan",
+    "store_country": "Russia",
+    "price_per_unit_string": "92.25 RUB/kg"
   }
 ]
