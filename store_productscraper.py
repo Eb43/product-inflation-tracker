@@ -19,7 +19,9 @@ DATABASE_FILE = 'product_inflation.db'
 UNIT_BASE_LABELS = {
     "oz": "kg", "lb": "kg", "g": "kg", "kg": "kg",
     "ml": "l", "l": "l", "fl oz": "l",
-    "г": "kg", "кг": "kg", "л": "l", "мл": "l"
+    "г": "kg", "кг": "kg", "л": "l", "мл": "l",
+    "шт": "one piece", "ea": "one piece", "piece": "one piece", 
+    "pieces": "one piece", "pcs": "one piece", "pc": "one piece"
 }
 
 UNIT_PATTERNS = {
@@ -33,7 +35,13 @@ UNIT_PATTERNS = {
     "ml": 0.001,
     "г": 0.001,
     "мл": 0.001,
-    "л": 1.0
+    "л": 1.0,
+    "шт": 1.0,
+    "ea": 1.0,
+    "piece": 1.0,
+    "pieces": 1.0,
+    "pcs": 1.0,
+    "pc": 1.0
 }
 
 def fetch_page_requests(url):
@@ -60,7 +68,7 @@ def fetch_page_requests(url):
 
 def fetch_page_selenium(url):
     firefox_options = FirefoxOptions()
-    firefox_options.binary_location = r"d:\Mozilla Firefox-For-Selenium\firefox.exe" 
+    firefox_options.binary_location = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\firefox.exe" 
     #firefox_options.add_argument("--headless")
     firefox_options.set_capability("moz:webdriverClick", False)
     
@@ -68,7 +76,7 @@ def fetch_page_selenium(url):
     firefox_options.set_preference("network.cookie.lifetimePolicy", 0)
     #firefox_options.set_preference("network.cookie.cookieBehavior", 0)
     
-    profile_path = r"d:\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
+    profile_path = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
     firefox_options.add_argument(f'--profile')
     firefox_options.add_argument(profile_path)
     
@@ -274,7 +282,7 @@ def extract_package_info(title_string):
     
     # Look for patterns like "24 oz", "2L", "500g", etc.
     patterns = [
-        r'(\d+(?:[,\.]\d+)?)\s*(oz|lb|g|kg|ml|l|fl oz|г|мл|л|кг)\b',
+        r'(\d+(?:[,\.]\d+)?)\s*(oz|lb|g|kg|ml|l|fl oz|г|мл|л|кг|шт|ea|piece|pieces|pcs|pc)\b',
         r'(\d+(?:[,\.]\d+)?)\s*(ounce|pound|gram|kilogram|liter|litre)\b'
     ]
     
@@ -292,7 +300,7 @@ def extract_package_info(title_string):
             # Normalize unit names
             unit_map = {
                 'ounce': 'oz', 'pound': 'lb', 'gram': 'g', 'kilogram': 'kg',
-                'liter': 'l', 'litre': 'l', 'кг': 'kg'
+                'liter': 'l', 'litre': 'l', 'кг': 'kg', 'pieces': 'piece', 'pcs': 'pc'             
             }
             unit = unit_map.get(unit, unit)
             
@@ -302,7 +310,7 @@ def extract_package_info(title_string):
     return "", 0.0, ""
 
 def calculate_price_per_unit(price_number, package_size, package_unit, currency):
-    """Calculate price per standard unit (kg or l)"""
+    """Calculate price per standard unit (kg or l or one piece)"""
     if package_size == 0 or not package_unit:
         return "", 0.0
     
@@ -356,7 +364,7 @@ def calculate_inflation_rate(current_price, previous_price):
         return 0.0  # Return 0 instead of None for first entry
     
     inflation_rate = ((current_price - previous_price) / previous_price) * 100
-    return inflation_rate
+    return round(inflation_rate, 3)  # Round to 3 decimal places
 
 def get_current_date_string():
     """Get current date as string in YYYY-MM-DD format"""
