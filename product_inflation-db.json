@@ -550,5 +550,13 @@
     "store_name": "Auchan",
     "store_country": "Russia",
     "price_per_unit_string": "4.00 RUB/one piece"
+  },
+  {
+    "date": "2025-08-19",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "43.11 ГРН/kg"
   }
 ]

@@ -231,3 +231,53 @@ URLS = [
 cheapest: https://www.auchan.ru/catalog/moloko-syr-yayca/yayco/yayco-kurinoe/?sort=price_asc
 most_expensive: 
 ]
+
+===
+
+STORE = ATB Market
+COUNTRY = Ukraine
+PRODUCT = Milk
+
+TITLE = [
+<div class="catalog-item__title">
+  <a>FFF</a>
+</div>
+]
+
+PRICE = [
+<div class="catalog-item__product-price product-price product-price--weight ">
+  <data class="product-price__top">
+    <span>FFF<span class="product-price__coin">FFF</span></span>
+]
+
+CURRENCY_MAP = ["грн": "ГРН"]
+
+URLS = [
+cheapest: https://www.atbmarket.com/catalog/398-moloko?sort=price
+most_expensive: 
+]
+
+===
+
+STORE = ATB Market
+COUNTRY = Ukraine
+PRODUCT = Eggs
+
+TITLE = [
+<div class="catalog-item__title">
+  <a>FFF</a>
+</div>
+]
+
+PRICE = [
+<div class="catalog-item__product-price product-price product-price--weight ">
+  <data class="product-price__top">
+    <span>FFF<span class="product-price__coin">FFF</span>
+]
+
+CURRENCY_MAP = ["грн": "ГРН"]
+
+URLS = [
+cheapest: https://www.atbmarket.com/catalog/381-yaytsya-kuryachi-perepelini?sort=price
+most_expensive: 
+]
