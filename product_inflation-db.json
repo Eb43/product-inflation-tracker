@@ -670,5 +670,13 @@
     "store_name": "ATB Market",
     "store_country": "Ukraine",
     "price_per_unit_string": "43.11 ГРН/kg"
+  },
+  {
+    "date": "2025-08-21",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "4.20 USD/l"
   }
 ]

@@ -259,6 +259,27 @@ most_expensive:
 
 ===
 
+STORE = Walmart
+COUNTRY = USA
+PRODUCT = Milk
+
+TITLE = [
+<span data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l lh-copy">FFF</span>
+]
+
+PRICE = [
+<span class="w_iUH7">current price FFF</span>
+]
+
+CURRENCY_MAP = ["$": "USD"]
+
+URLS = [
+cheapest: https://www.walmart.com/browse/food/whole-milk/976759_9176907_4405816_6541475_6877499?sort=price_low
+most_expensive: 
+]
+
+===
+
 STORE = ATB Market
 COUNTRY = Ukraine
 PRODUCT = Eggs
