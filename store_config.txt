@@ -13,7 +13,7 @@ PRICE = [
 CURRENCY_MAP = ["$": "USD"]
 
 URLS = [
-cheapest: https://www.walmart.com/search?q=bread&sort=price_low
+cheapest: https://www.walmart.com/browse/food/white-bread/976759_976779_8399244_6065814?sort=price_low
 most_expensive: 
 ]
 
