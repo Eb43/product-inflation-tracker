@@ -59,8 +59,8 @@ PRICE = [
 CURRENCY_MAP = ["$": "CAD"]
 
 URLS = [
-cheapest: https://www.nofrills.ca/en/search?search-bar=bread&sort=price-asc&page=1&category=27985&category=28002
-most_expensive: https://www.nofrills.ca/en/search?search-bar=bread&sort=price-desc&page=1&category=27985&category=28002
+cheapest: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-asc&page=1
+most_expensive: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-desc&page=1
 ]
 
 ===
@@ -275,30 +275,5 @@ CURRENCY_MAP = ["$": "USD"]
 
 URLS = [
 cheapest: https://www.walmart.com/browse/food/whole-milk/976759_9176907_4405816_6541475_6877499?sort=price_low
-most_expensive: 
-]
-
-===
-
-STORE = ATB Market
-COUNTRY = Ukraine
-PRODUCT = Eggs
-
-TITLE = [
-<div class="catalog-item__title">
-  <a>FFF</a>
-</div>
-]
-
-PRICE = [
-<div class="catalog-item__product-price product-price product-price--weight ">
-  <data class="product-price__top">
-    <span>FFF<span class="product-price__coin">FFF</span>
-]
-
-CURRENCY_MAP = ["грн": "ГРН"]
-
-URLS = [
-cheapest: https://www.atbmarket.com/catalog/381-yaytsya-kuryachi-perepelini?sort=price
 most_expensive: 
 ]
