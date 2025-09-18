@@ -65,6 +65,27 @@ most_expensive: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-
 
 ===
 
+STORE = Albert
+COUNTRY = Czech
+PRODUCT = Bread
+
+TITLE = [
+<span data-testid="product-name">FFF</span></a></h3></div><div data-testid="product-block-attributes" class="sc-y4jrw3-17 dOeTzF"><div class="sc-y4jrw3-20 hCUcoG"><div class="sc-y4jrw3-21 iojmEA"><div data-testid="product-block-supplementary-price-2" class="sc-dqia0p-0 fLKnrn">FFF</div>•<div data-testid="product-block-price-per-unit" type="normal" class="sc-dqia0p-3 kGnDnm">FFF</div>
+]
+
+PRICE = [
+<div class="sc-dqia0p-9 kJAIBp">FFF</div><sup class="sc-dqia0p-10 jaTaUA">FFF </sup><div class="sc-dqia0p-8 kyoGRo">FFF</div>
+]
+
+CURRENCY_MAP = ["Kč": "CZK"]
+
+URLS = [
+cheapest: https://www.albert.cz/shop/Pekarna-a-cukrarna/Chleb-baleny/c/zeFG02?q=%3Aprice-asc&sort=price-asc
+most_expensive: 
+]
+
+===
+
 STORE = HEB
 COUNTRY = Mexico
 PRODUCT = Bread
@@ -81,27 +102,6 @@ CURRENCY_MAP = ["$": "MXN"]
 
 URLS = [
 cheapest: https://www.heb.com.mx/pan-empacado/pan-blanco?order=OrderByPriceASC
-most_expensive: 
-]
-
-===
-
-STORE = Albert
-COUNTRY = Czech
-PRODUCT = Bread
-
-TITLE = [
-<span data-testid="product-name">FFF</span></a></h3></div><div data-testid="product-block-attributes" class="sc-y4jrw3-17 dOeTzF"><div class="sc-y4jrw3-20 hCUcoG"><div class="sc-y4jrw3-21 iojmEA"><div data-testid="product-block-supplementary-price-2" class="sc-dqia0p-0 fLKnrn">FFF</div>•<div data-testid="product-block-price-per-unit" type="normal" class="sc-dqia0p-3 kGnDnm">FFF</div>
-]
-
-PRICE = [
-<div class="sc-dqia0p-9 dsNELN">FFF</div><sup class="sc-dqia0p-10 fjOrrj">FFF </sup><div class="sc-dqia0p-8 kyoGRo">FFF</div>
-]
-
-CURRENCY_MAP = ["Kč": "CZK"]
-
-URLS = [
-cheapest: https://www.albert.cz/search-results?q=chl%C3%A9b%3Aprice-asc%3AfirstLevelCategories%3AzeF001&text=chl%C3%A9b%20&sort=price-asc
 most_expensive: 
 ]
 
