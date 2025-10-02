@@ -4,6 +4,7 @@ import sqlite3
 import re
 import time
 import requests
+import random
 from datetime import datetime
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -47,7 +48,7 @@ UNIT_PATTERNS = {
 def fetch_page_requests(url):
     headers = {
         "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0"
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0"
         ),
         "Accept": (
             "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
@@ -74,7 +75,10 @@ def fetch_page_selenium(url):
     
     firefox_options.set_preference("javascript.enabled", True)
     firefox_options.set_preference("network.cookie.lifetimePolicy", 0)
-    #firefox_options.set_preference("network.cookie.cookieBehavior", 0)
+    firefox_options.set_preference("network.cookie.cookieBehavior", 0)
+    firefox_options.set_preference("privacy.clearOnShutdown.cookies", False)
+    firefox_options.set_preference("privacy.clearOnShutdown.cache", False)
+
     
     profile_path = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
     firefox_options.add_argument(f'--profile')
@@ -109,11 +113,18 @@ def fetch_page_selenium(url):
 
     try:
         #print(f"Attempting to load: {url}")
+        driver.execute_script("""
+            Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+            Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+            Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
+            window.chrome = {runtime: {}};
+        """)
         driver.get(url)
         driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         
         # Wait for page to load and check if we reached an error page
         time.sleep(15)
+        simulate_human_behavior(driver)
         current_url = driver.current_url
         
         if "about:neterror" in current_url:
@@ -133,6 +144,18 @@ def fetch_page_selenium(url):
     finally:
         driver.quit()
         
+
+def simulate_human_behavior(driver):
+    """Add subtle human-like behavior"""
+    try:
+        # Random small mouse movements
+        from selenium.webdriver.common.action_chains import ActionChains
+        actions = ActionChains(driver)
+        actions.move_by_offset(random.randint(1, 5), random.randint(1, 5))
+        actions.perform()
+        time.sleep(random.uniform(0.5, 2))
+    except:
+        pass  # Ignore if fails
       
 #Save Selenium output into HTML file on localdisk - for debugging
 #This function is called from main() - uncomment the call to activate it 
