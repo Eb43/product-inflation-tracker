@@ -277,3 +277,26 @@ URLS = [
 cheapest: https://www.walmart.com/browse/food/whole-milk/976759_9176907_4405816_6541475_6877499?sort=price_low
 most_expensive: 
 ]
+
+
+
+===
+
+STORE = Jumbo
+COUNTRY = Chile
+PRODUCT = Bread
+
+TITLE = [
+<h2 class="product-card-name text-black font-normal h-[60px] grow leading-5" style="display: -webkit-box; -moz-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">FFF</h2>
+]
+
+PRICE = [
+<div class="flex items-baseline text-neutral700 gap-2 md:gap-3 font-bold text-lg leading-5">FFF<span class="font-normal line-through text-neutral600 text-sm">
+]
+
+CURRENCY_MAP = ["$": "CLP"]
+
+URLS = [
+cheapest: https://www.jumbo.cl/panaderia-y-pasteleria/panaderia-envasada?o=OrderByPriceASC
+most_expensive: 
+]

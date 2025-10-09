@@ -7,6 +7,7 @@ import requests
 import random
 from datetime import datetime
 from bs4 import BeautifulSoup
+from bs4 import NavigableString
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -70,7 +71,6 @@ def fetch_page_requests(url):
 def fetch_page_selenium(url):
     firefox_options = FirefoxOptions()
     firefox_options.binary_location = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\firefox.exe" 
-    #firefox_options.add_argument("--headless")
     firefox_options.set_capability("moz:webdriverClick", False)
     
     firefox_options.set_preference("javascript.enabled", True)
@@ -81,30 +81,13 @@ def fetch_page_selenium(url):
 
     
     profile_path = r"d:\Programs and browsers\Mozilla Firefox-For-Selenium\7wztt9ek.firefox-for-selenium"
-    firefox_options.add_argument(f'--profile')
+    firefox_options.add_argument(f'-profile')
     firefox_options.add_argument(profile_path)
     
-    # Enhanced SSL/TLS settings
-    firefox_options.set_preference("security.enterprise_roots.enabled", True)
+
     firefox_options.set_preference("dom.webdriver.enabled", False)
-    firefox_options.set_preference("webdriver_accept_untrusted_certs", True)
-    firefox_options.set_preference("acceptInsecureCerts", True)
     
-    # Additional SSL/TLS preferences
-    firefox_options.set_preference("security.tls.insecure_fallback_hosts", "www.hipercor.es")
-    firefox_options.set_preference("security.cert_pinning.enforcement_level", 0)
-    firefox_options.set_preference("security.mixed_content.block_active_content", False)
-    firefox_options.set_preference("security.mixed_content.block_display_content", False)
-    firefox_options.set_preference("security.tls.hello_downgrade_check", False)
-    firefox_options.set_preference("security.tls.version.enable-deprecated", True)
-    
-    # Network settings
-    firefox_options.set_preference("network.http.connection-timeout", 60)
-    firefox_options.set_preference("network.http.connection-retry-timeout", 60)
-    
-    # User agent to avoid detection
-    firefox_options.set_preference("general.useragent.override", 
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0")
+
    
     driver_path = os.path.join(os.getcwd(), "geckodriver.exe")
     service = Service(executable_path=driver_path)
@@ -279,17 +262,32 @@ def extract_price_info(price_string, currency_map):
     # Remove currency symbols and non-numeric characters except decimal point and comma
     price_clean = re.sub(r'[^\d.,]', '', price_string)
     
-    # Handle European decimal format (comma as decimal separator)
-    if ',' in price_clean and '.' not in price_clean:
-        price_clean = price_clean.replace(',', '.')
-    elif ',' in price_clean and '.' in price_clean:
-        # Handle format like "1.234,56" (European thousands separator)
+    # --- Normalize separators based on position and length ---
+    if ',' in price_clean and '.' in price_clean:
+        # Both separators exist: decide which is decimal
         if price_clean.rfind(',') > price_clean.rfind('.'):
-            # Comma is the decimal separator
+            # Example: 1.390,80 -> thousands '.' and decimal ','
             price_clean = price_clean.replace('.', '').replace(',', '.')
         else:
-            # Dot is the decimal separator
+            # Example: 2,499.99 -> thousands ',' and decimal '.'
             price_clean = price_clean.replace(',', '')
+    elif ',' in price_clean:
+        # Only comma present
+        parts = price_clean.split(',')
+        if len(parts[-1]) == 2:
+            # Likely decimal comma: 1390,80 -> 1390.80
+            price_clean = price_clean.replace(',', '.')
+        else:
+            # Likely thousands comma: 1,390 -> 1390
+            price_clean = price_clean.replace(',', '')
+    elif '.' in price_clean:
+        # Only dot present
+        parts = price_clean.split('.')
+        if len(parts[-1]) >= 3:
+            # Likely thousands dot: 1.390 -> 1390
+            price_clean = price_clean.replace('.', '')
+        # else leave as is (13.90)
+
     
     try:
         price_number = float(price_clean)
@@ -424,6 +422,29 @@ def save_to_database(store_name, country_name, product_name, variant, full_name,
         price_number, package_size, package_unit, price_currency
     )
     
+    # --- Guard: skip save if any key numeric value is zero, missing, or empty ---
+    invalid_values = []
+
+    def is_invalid(value):
+        return (
+            value is None
+            or value == ""
+            or (isinstance(value, (int, float)) and value == 0.0)
+        )
+
+    if is_invalid(price_number):
+        invalid_values.append("price_number missing or zero")
+    if is_invalid(package_size):
+        invalid_values.append("package_size missing or zero")
+    if is_invalid(price_per_unit_number):
+        invalid_values.append("price_per_unit_number missing or zero")
+
+    if invalid_values:
+        reason_text = ", ".join(invalid_values)
+        print(f"✗ Skipping save: invalid numeric values ({reason_text}) for {store_name} - {product_name} ({variant})")
+        return
+    # --------------------------------------------------------------------
+    
     # Get previous price for inflation calculation
     previous_price = get_previous_price(store_id, product_type_id, variant)
     inflation_rate = calculate_inflation_rate(price_number, previous_price)
@@ -535,7 +556,9 @@ def parse_config(file_path):
     return configs
 
 def check_element_attributes(element, required_attrs):
-    """Check if element has all required attributes - template attrs must be subset of element attrs"""
+    """Check if element has all required attributes - template attrs must be subset of element attrs.
+    Relaxed matching: skip 'style', use substring match for other attrs (except class which is subset).
+    """
     for attr_name, required_value in required_attrs.items():
         if attr_name == 'class':
             # Handle class attribute - all required classes must be present
@@ -546,11 +569,21 @@ def check_element_attributes(element, required_attrs):
             element_classes = set(element.get('class', []))
             if not required_classes.issubset(element_classes):
                 return False
+        elif attr_name == 'style':
+            # Styles often differ (inline/generated) — ignore to avoid false negatives
+            continue
         else:
-            # Handle other attributes - element must have the attribute with matching value
-            # But element can have additional attributes not in template
-            if element.get(attr_name) != required_value:
+            elem_val = element.get(attr_name)
+            if elem_val is None:
                 return False
+            # required_value can be list or string; use substring containment
+            if isinstance(required_value, (list, tuple)):
+                for rv in required_value:
+                    if str(rv) not in str(elem_val):
+                        return False
+            else:
+                if str(required_value) not in str(elem_val):
+                    return False
     return True
 
 def find_matching_element(page_soup, template_element):
@@ -618,78 +651,151 @@ def extract_text_from_element(element, template_element):
     return element_text
 
 def extract_data_from_template(template_lines, page_html):
-    """Extract data from page using template"""
+    """Extract data from page using template (handles nested/multiple FFF and truncated tags).
+    Behavior:
+      - single FFF followed immediately by a child tag in template => take only direct text before first child
+      - multiple FFF => collect non-struck / relevant text nodes in DOM order
+      - fallback to existing prefix/suffix extraction when needed
+    """
+    import re
     template_html = '\n'.join(template_lines)
-    #print(f"Template HTML: {template_html}")
-    
     # Fix malformed template HTML - if it starts with attributes, add opening tag
     if template_html.strip().startswith('class=') or template_html.strip().startswith('data-'):
         template_html = '<a ' + template_html
-    
+
     template_soup = BeautifulSoup(template_html, 'html.parser')
     page_soup = BeautifulSoup(page_html, 'html.parser')
-    
+
     extracted_parts = []
     processed_elements = []
-    
-    # Process each template element that contains FFF
+
     for template_element in template_soup.find_all():
-        if 'FFF' not in template_element.decode():
+        tmpl_raw = str(template_element)
+        if 'FFF' not in tmpl_raw:
             continue
-            
-        #print(f"Processing template: {template_element}")
-        
-        # Find matching element in page
+
         matching_element = find_matching_element(page_soup, template_element)
-        
-        if matching_element:
-            # Skip if we already processed this element or its parent/child
-            skip_element = False
-            for processed in processed_elements:
-                # Skip if same element
-                if matching_element == processed:
-                    skip_element = True
-                    break
-                # Skip if this element is inside a processed element
-                if matching_element in processed.descendants:
-                    skip_element = True
-                    break
-                # Skip if a processed element is inside this element
-                if processed in matching_element.descendants:
-                    skip_element = True
-                    break
-            
-            if skip_element:
-                #print("Skipping - element already processed or related")
-                continue
-            
-            # Extract text based on template complexity
-            if len(template_element.find_all()) > 0:
-                # Complex nested template - get full text from container
-                extracted_text = matching_element.get_text(strip=True)
-                extracted_text = ' '.join(extracted_text.split())  # Clean whitespace
+        if not matching_element:
+            # keep previous behavior: announce if not found, but continue
+            print("No matching element found")
+            continue
+
+        # skip overlaps / already processed
+        skip_element = False
+        for processed in processed_elements:
+            if matching_element == processed or matching_element in processed.descendants or processed in matching_element.descendants:
+                skip_element = True
+                break
+        if skip_element:
+            continue
+
+        # Count placeholders using raw template string (preserves multiple FFF inside tags)
+        fff_count = tmpl_raw.count('FFF')
+
+        # Helper: detect if 'FFF' in template is immediately followed by a child tag like <span...>
+        single_fff_followed_by_tag = False
+        if fff_count == 1:
+            idx = tmpl_raw.find('FFF')
+            if idx != -1:
+                rest = tmpl_raw[idx+3:]
+                if re.match(r'^\s*<', rest):  # next non-space character is '<'
+                    single_fff_followed_by_tag = True
+
+        extracted_text = ""
+
+        if single_fff_followed_by_tag:
+            # Extract only direct text nodes (exclude text inside child tags like <span>)
+            direct_nodes = [s for s in matching_element.find_all(string=True, recursive=False)]
+            element_direct_text = ' '.join([t.strip() for t in direct_nodes if t and t.strip()])
+
+            # Try to apply prefix/suffix logic on the direct text
+            template_text = template_element.get_text()
+            if 'FFF' in template_text and template_text.count('FFF') == 1:
+                template_parts = template_text.split('FFF')
+                prefix = template_parts[0]
+                suffix = template_parts[1].strip() if len(template_parts) > 1 else ""
+
+                start_pos = 0
+                el_lower = element_direct_text.lower()
+                if prefix:
+                    prefix_pos = el_lower.find(prefix.lower())
+                    if prefix_pos >= 0:
+                        start_pos = prefix_pos + len(prefix)
+                    else:
+                        start_pos = 0
+                end_pos = len(element_direct_text)
+                if suffix:
+                    suffix_pos = el_lower.find(suffix.lower(), start_pos)
+                    if suffix_pos >= 0:
+                        end_pos = suffix_pos
+
+                extracted_text = element_direct_text[start_pos:end_pos].strip()
             else:
-                # Simple template - use targeted extraction
+                extracted_text = element_direct_text.strip()
+
+            # Fallback to full extraction if direct extraction fails
+            if not extracted_text:
                 extracted_text = extract_text_from_element(matching_element, template_element)
-            
-            if extracted_text:
-                ##print(f"Extracted text: '{extracted_text}'")
-                extracted_parts.append(extracted_text)
-                processed_elements.append(matching_element)
-    
-    # Combine all parts and remove duplicates while preserving order
+
+        elif fff_count > 1:
+            # Multiple placeholders: collect text nodes in DOM order,
+            # but skip nodes that are inside elements that look like "old/struck" prices or price-sign nodes.
+            def parent_indicates_struck(el):
+                # check element and its ancestors for classes/styles indicating struck/old price
+                cur = el
+                while cur and getattr(cur, "name", None):
+                    classes = cur.get('class', []) or []
+                    for c in classes:
+                        if isinstance(c, str):
+                            cl = c.lower()
+                            if ('line-through' in cl) or ('strike' in cl) or ('price--sign' in cl) or ('price--suffix' in cl) or ('price--old' in cl) or ('old-price' in cl) or ('price-old' in cl) or ('discount' in cl) or ('promo' in cl):
+                                return True
+                    style = (cur.get('style') or "").lower()
+                    if 'line-through' in style or 'text-decoration: line-through' in style:
+                        return True
+                    cur = cur.parent
+                return False
+
+            texts = []
+            for node in matching_element.descendants:
+                if isinstance(node, NavigableString):
+                    txt = node.strip()
+                    if not txt:
+                        continue
+                    parent = node.parent
+                    if parent_indicates_struck(parent):
+                        # skip struck/old/discount text nodes
+                        continue
+                    texts.append(txt)
+            # If nothing left after filtering, fallback to all stripped strings
+            if not texts:
+                texts = [s.strip() for s in matching_element.stripped_strings if s.strip()]
+            extracted_text = ' '.join(texts)
+
+        else:
+            # Single-FFF normal case: use existing targeted extraction
+            extracted_text = extract_text_from_element(matching_element, template_element)
+
+        if extracted_text:
+            extracted_parts.append(extracted_text)
+            processed_elements.append(matching_element)
+
+    # Combine all parts and deduplicate while preserving order
     final_parts = []
     for part in extracted_parts:
         if part not in final_parts:
             final_parts.append(part)
-    
+
+    # Preserve the old formatting attempts for numeric split (no change)
     if len(final_parts) == 3 and final_parts[0].isdigit() and final_parts[1].isdigit():
-         final_result = f"{final_parts[0]}.{final_parts[1]} {final_parts[2]}"
+        final_result = f"{final_parts[0]}.{final_parts[1]} {final_parts[2]}"
     elif len(final_parts) == 2 and final_parts[0].isdigit() and final_parts[1].isdigit():
-         final_result = f"{final_parts[0]}.{final_parts[1]}"
+        final_result = f"{final_parts[0]}.{final_parts[1]}"
     else:
-          final_result = ' '.join(final_parts)
-    #print(f"Final result: '{final_result}'")
+        final_result = ' '.join(final_parts)
+
+    # Normalize whitespace and NBSP
+    final_result = re.sub(r'\s+', ' ', final_result.replace('\xa0', ' ')).strip()
     return final_result
 
 def main():
@@ -735,6 +841,8 @@ def main():
                 print(f"Product Variant: {variant}")
                 print(f"Full Product Title: {product_title}")
                 print(f"Full Price: {product_price}")
+
+                
                 
                 # Save to database
                 #print(f"\n--- Saving to Database ---")

@@ -1518,5 +1518,13 @@
     "store_name": "ATB Market",
     "store_country": "Ukraine",
     "price_per_unit_string": "43.11 ГРН/kg"
+  },
+  {
+    "date": "2025-10-10",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Jumbo",
+    "store_country": "Chile",
+    "price_per_unit_string": "4633.33 CLP/kg"
   }
 ]
