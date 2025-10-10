@@ -1526,5 +1526,13 @@
     "store_name": "Jumbo",
     "store_country": "Chile",
     "price_per_unit_string": "4633.33 CLP/kg"
+  },
+  {
+    "date": "2025-10-10",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Naivas",
+    "store_country": "Kenya",
+    "price_per_unit_string": "140.00 KES/kg"
   }
 ]

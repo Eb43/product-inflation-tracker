@@ -300,3 +300,24 @@ URLS = [
 cheapest: https://www.jumbo.cl/panaderia-y-pasteleria/panaderia-envasada?o=OrderByPriceASC
 most_expensive: 
 ]
+
+===
+
+STORE = Naivas
+COUNTRY = Kenya
+PRODUCT = Bread
+
+TITLE = [
+<span class="line-clamp-2 text-ellipsis">FFF</span>
+]
+
+PRICE = [
+<span class="font-bold text-naivas-green mb-1 md:mb-0 pe-2">KES&nbsp;FFF</span>
+]
+
+CURRENCY_MAP = ["KShs": "KES"]
+
+URLS = [
+cheapest: https://naivas.online/search?term=bread&sort=price&order=asc
+most_expensive: 
+]
