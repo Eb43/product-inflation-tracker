@@ -24,7 +24,11 @@ def extract_product_inflation():
     FROM PriceSample ps
     JOIN ProductType pt ON ps.product_type_id = pt.product_type_id
     JOIN Store s ON ps.store_id = s.store_id
+
     """
+    ##Extract only specified pruduct type (bread) and variant (cheapest)
+    ##WHERE ps.variant = 'cheapest' AND ps.product_type_id = 1
+    
 
     # Execute the query and fetch results
     cursor.execute(query)
