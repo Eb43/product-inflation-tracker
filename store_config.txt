@@ -1,4 +1,27 @@
-﻿STORE = Walmart
+﻿STORE = No Frills
+COUNTRY = Canada
+PRODUCT = Bread
+
+TITLE = [
+<h3 class="chakra-heading css-1wmnia2" data-testid="product-title">FFF</h3><p class="chakra-text css-pfkbv2" data-testid="product-package-size">FFF</p>
+]
+
+PRICE = [
+<span class="chakra-text css-s9i4ca" data-testid="regular-price">FFF</span>
+]
+
+
+
+CURRENCY_MAP = ["$": "CAD"]
+
+URLS = [
+cheapest: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-asc&page=1
+most_expensive: 
+]
+
+===
+
+STORE = Walmart
 COUNTRY = USA
 PRODUCT = Bread
 
@@ -44,27 +67,6 @@ most_expensive: https://www.atbmarket.com/sch?lang=uk&location=1154&query=%D1%85
 
 ===
 
-STORE = No Frills
-COUNTRY = Canada
-PRODUCT = Bread
-
-TITLE = [
-<p class="chakra-text css-1ecdp9w" data-testid="product-brand">FFF</p><h3 class="chakra-heading css-6qrhwc"  data-testid="product-title">FFF</h3><p class="chakra-text css-1yftjin" data-testid="product-package-size">FFF</p>
-]
-
-PRICE = [
-<span class="chakra-text css-pwnbcb" data-testid="regular-price">FFF</span>
-]
-
-CURRENCY_MAP = ["$": "CAD"]
-
-URLS = [
-cheapest: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-asc&page=1
-most_expensive: https://www.nofrills.ca/en/food/bakery/bread/c/28251?sort=price-desc&page=1
-]
-
-===
-
 STORE = Albert
 COUNTRY = Czech
 PRODUCT = Bread
@@ -74,7 +76,7 @@ TITLE = [
 ]
 
 PRICE = [
-<div class="sc-dqia0p-9 kJAIBp">FFF</div><sup class="sc-dqia0p-10 jaTaUA">FFF </sup><div class="sc-dqia0p-8 kyoGRo">FFF</div>
+<div data-stellar="st-web-price" data-testid="product-block-price" class="sc-dqia0p-1 iwdqWn"><div aria-hidden="true" class="sc-dqia0p-8 bmOulo">FFF</div><sup aria-hidden="true" class="sc-dqia0p-9 cSDduQ">FFF</sup><div aria-hidden="true" class="sc-dqia0p-7 cOvkUn">FFF</div>
 ]
 
 CURRENCY_MAP = ["Kč": "CZK"]
