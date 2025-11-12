@@ -2046,5 +2046,133 @@
     "store_name": "Naivas",
     "store_country": "Kenya",
     "price_per_unit_string": "140.00 KES/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "No Frills",
+    "store_country": "Canada",
+    "price_per_unit_string": "3.88 CAD/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "59.14 ГРН/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "most_expensive",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "172.14 ГРН/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Albert",
+    "store_country": "Czech",
+    "price_per_unit_string": "91.60 CZK/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "HEB",
+    "store_country": "Mexico",
+    "price_per_unit_string": "51.47 MXN/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Billa",
+    "store_country": "Austria",
+    "price_per_unit_string": "1.98 EUR/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "HIPERCOR",
+    "store_country": "Spain",
+    "price_per_unit_string": "1.74 EUR/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Arbuz",
+    "store_country": "Kazakhstan",
+    "price_per_unit_string": "1000.00 KZT/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Auchan",
+    "store_country": "Russia",
+    "price_per_unit_string": "99.97 RUB/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "Auchan",
+    "store_country": "Russia",
+    "price_per_unit_string": "139.95 RUB/l"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Egg",
+    "store_name": "Auchan",
+    "store_country": "Russia",
+    "price_per_unit_string": "4.70 RUB/one piece"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "45.11 ГРН/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "4.20 USD/l"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Jumbo",
+    "store_country": "Chile",
+    "price_per_unit_string": "4300.00 CLP/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Naivas",
+    "store_country": "Kenya",
+    "price_per_unit_string": "140.00 KES/kg"
+  },
+  {
+    "date": "2025-11-13",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "2.50 USD/kg"
   }
 ]
