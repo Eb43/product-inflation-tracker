@@ -242,6 +242,7 @@ def get_or_create_product_type(product_name):
     return product_type_id
 
 def extract_price_info(price_string, currency_map):
+
     """Extract price number from price string and get currency from currency_map"""
     if not price_string:
         return 0.0, ""
@@ -284,6 +285,7 @@ def extract_price_info(price_string, currency_map):
     except:
         price_number = 0.0
     
+    print(f"Price number to database: {price_number}")
     return price_number, currency
 
 def extract_package_info(title_string):
@@ -348,6 +350,7 @@ def calculate_price_per_unit(price_number, package_size, package_unit, currency)
     # Format the string with proper decimal formatting
     price_per_unit_string = f"{price_per_unit:.2f} {currency}/{standard_unit}"
     
+    print(f"Price per unit string to database: {price_per_unit_string}")
     return price_per_unit_string, price_per_unit
 
 def get_previous_price(store_id, product_type_id, variant):
@@ -742,7 +745,7 @@ def extract_data_from_template(template_lines, page_html):
         else:
             final_result = ' '.join(final_parts)
           
-    #print(f"Final result: '{final_result}'")
+    print(f"Final result extracted: '{final_result}'")
     return final_result
 
 def main():
