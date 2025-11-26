@@ -247,9 +247,8 @@ TITLE = [
 ]
 
 PRICE = [
-<div class="catalog-item__product-price product-price product-price--weight ">
   <data class="product-price__top">
-    <span>FFF<span class="product-price__coin">FFF</span></span>
+    <span>FFF<span class="product-price__coin">FFF</span></span></data>
 ]
 
 CURRENCY_MAP = ["грн": "ГРН"]
