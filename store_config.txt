@@ -125,7 +125,7 @@ PRICE = [
 CURRENCY_MAP = ["€": "EUR"]
 
 URLS = [
-cheapest: https://shop.billa.at/kategorie/brot-verpackt-13771?sortBy=price&sortOrder=asc
+cheapest: https://shop.billa.at/kategorie/brot-verpackt-15535?sortBy=price&sortOrder=asc
 most_expensive: 
 ]
 
