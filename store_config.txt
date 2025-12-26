@@ -82,7 +82,7 @@ PRICE = [
 CURRENCY_MAP = ["Kč": "CZK"]
 
 URLS = [
-cheapest: https://www.albert.cz/shop/Pekarna-a-cukrarna/Chleb-baleny/c/zeFG02?q=%3Aprice-asc&sort=price-asc
+cheapest: https://www.albert.cz/search-results?q=chl%C3%A9b%3Aprice-asc%3AfirstLevelCategories%3AzeF001&text=chl%C3%A9b%20&sort=price-asc
 most_expensive: 
 ]
 
