@@ -26,7 +26,7 @@ COUNTRY = USA
 PRODUCT = Bread
 
 TITLE = [
-<span data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l lh-copy">FFF</span>
+<a class="w-100 h-100 z-1 hide-sibling-opacity  absolute"><span class="w_iUH7"><h3>FFF</h3></span></a>
 ]
 
 PRICE = [
@@ -265,7 +265,7 @@ COUNTRY = USA
 PRODUCT = Milk
 
 TITLE = [
-<span data-automation-id="product-title" class="normal dark-gray mb0 mt1 lh-title f6 f5-l lh-copy">FFF</span>
+<a class="w-100 h-100 z-1 hide-sibling-opacity  absolute"><span class="w_iUH7"><h3>FFF</h3></span></a>
 ]
 
 PRICE = [
