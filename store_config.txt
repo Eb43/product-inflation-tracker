@@ -65,26 +65,6 @@ cheapest: https://www.atbmarket.com/sch?lang=uk&location=1154&query=%D1%85%D0%BB
 most_expensive: https://www.atbmarket.com/sch?lang=uk&location=1154&query=%D1%85%D0%BB%D1%96%D0%B1&sort=-price
 ]
 
-===
-
-STORE = Albert
-COUNTRY = Czech
-PRODUCT = Bread
-
-TITLE = [
-<span data-testid="product-name">FFF</span></a></h3></div><div data-testid="product-block-attributes" class="sc-y4jrw3-17 dOeTzF"><div class="sc-y4jrw3-20 hCUcoG"><div class="sc-y4jrw3-21 iojmEA"><div data-testid="product-block-supplementary-price-2" class="sc-dqia0p-0 fLKnrn">FFF</div>•<div data-testid="product-block-price-per-unit" type="normal" class="sc-dqia0p-3 kGnDnm">FFF</div>
-]
-
-PRICE = [
-<div data-stellar="st-web-price" data-testid="product-block-price" class="sc-dqia0p-1 iwdqWn"><div aria-hidden="true" class="sc-dqia0p-8 bmOulo">FFF</div><sup aria-hidden="true" class="sc-dqia0p-9 cSDduQ">FFF</sup><div aria-hidden="true" class="sc-dqia0p-7 cOvkUn">FFF</div>
-]
-
-CURRENCY_MAP = ["Kč": "CZK"]
-
-URLS = [
-cheapest: https://www.albert.cz/search-results?q=chl%C3%A9b%3Aprice-asc%3AfirstLevelCategories%3AzeF001&text=chl%C3%A9b%20&sort=price-asc
-most_expensive: 
-]
 
 ===
 
@@ -281,6 +261,28 @@ most_expensive:
 
 
 
+
+===
+
+STORE = Naivas
+COUNTRY = Kenya
+PRODUCT = Bread
+
+TITLE = [
+<span class="line-clamp-2 text-ellipsis">FFF</span>
+]
+
+PRICE = [
+<span class="font-bold text-naivas-green mb-1 md:mb-0 pe-2">KES&nbsp;FFF</span>
+]
+
+CURRENCY_MAP = ["KShs": "KES"]
+
+URLS = [
+cheapest: https://naivas.online/search?term=bread&sort=price&order=asc
+most_expensive: 
+]
+
 ===
 
 STORE = Jumbo
@@ -304,21 +306,21 @@ most_expensive:
 
 ===
 
-STORE = Naivas
-COUNTRY = Kenya
+STORE = Albert
+COUNTRY = Czech
 PRODUCT = Bread
 
 TITLE = [
-<span class="line-clamp-2 text-ellipsis">FFF</span>
+<span data-testid="product-name">FFF</span></a></h3></div><div data-testid="product-block-attributes" class="sc-y4jrw3-17 dOeTzF"><div class="sc-y4jrw3-20 hCUcoG"><div class="sc-y4jrw3-21 iojmEA"><div data-testid="product-block-supplementary-price-2" class="sc-dqia0p-0 fLKnrn">FFF</div>•<div data-testid="product-block-price-per-unit" type="normal" class="sc-dqia0p-3 kGnDnm">FFF</div>
 ]
 
 PRICE = [
-<span class="font-bold text-naivas-green mb-1 md:mb-0 pe-2">KES&nbsp;FFF</span>
+<div data-stellar="st-web-price" data-testid="product-block-price" class="sc-dqia0p-1 iwdqWn"><div aria-hidden="true" class="sc-dqia0p-8 bmOulo">FFF</div><sup aria-hidden="true" class="sc-dqia0p-9 cSDduQ">FFF</sup><div aria-hidden="true" class="sc-dqia0p-7 cOvkUn">FFF</div>
 ]
 
-CURRENCY_MAP = ["KShs": "KES"]
+CURRENCY_MAP = ["Kč": "CZK"]
 
 URLS = [
-cheapest: https://naivas.online/search?term=bread&sort=price&order=asc
+cheapest: https://www.albert.cz/search-results?q=chl%C3%A9b%3Aprice-asc%3AfirstLevelCategories%3AzeF001&text=chl%C3%A9b%20&sort=price-asc
 most_expensive: 
 ]
