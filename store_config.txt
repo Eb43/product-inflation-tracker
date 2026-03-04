@@ -30,7 +30,7 @@ TITLE = [
 ]
 
 PRICE = [
-<span class="w_iUH7">current price FFF</span>
+<span class="ld_Ej">current price FFF</span>
 ]
 
 CURRENCY_MAP = ["$": "USD"]
@@ -249,7 +249,7 @@ TITLE = [
 ]
 
 PRICE = [
-<span class="w_iUH7">current price FFF</span>
+<span class="ld_Ej">current price FFF</span>
 ]
 
 CURRENCY_MAP = ["$": "USD"]
