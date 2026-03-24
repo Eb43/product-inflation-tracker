@@ -30,7 +30,7 @@ TITLE = [
 ]
 
 PRICE = [
-<span class="ld_Ej">current price FFF</span>
+<span class="ld_FS">current price FFF</span>
 ]
 
 CURRENCY_MAP = ["$": "USD"]
@@ -111,37 +111,16 @@ most_expensive:
 
 ===
 
-STORE = HIPERCOR
-COUNTRY = Spain
-PRODUCT = Bread
-
-TITLE = [
-<a class="link event js-product-link" data-event="product_click" >FFF <span class="product_tile-temporal_description"></span></a>
-]
-
-PRICE = [
-<div class="prices-price _current"><span>FFF</span>FFF<span>FFF</span> <span class="js-currency">€</span></div>
-]
-
-CURRENCY_MAP = ["€": "EUR"]
-
-URLS = [
-cheapest: https://www.hipercor.es/supermercado/desayunos-dulces-y-pan/pan/pan-de-molde-blanco/?sort=priceAsc
-most_expensive: 
-]
-
-===
-
 STORE = Arbuz
 COUNTRY = Kazakhstan
 PRODUCT = Bread
 
 TITLE = [
-<a draggable="false" class="product-card__title"> FFF </a> 
+<a draggable="false" class="product-card__title"><!----> FFF      </a>
 ]
 
 PRICE = [
-<span class="price--wrapper price--currency_KZT">FFF<span class="price--sign price--suffix">FFF</span></span><span>FFF</span>
+<span class="price--wrapper price--currency_KZT">FFF<span class="price--sign price--suffix">₸</span></span>
 ]
 
 CURRENCY_MAP = ["₸": "KZT"]
@@ -249,7 +228,7 @@ TITLE = [
 ]
 
 PRICE = [
-<span class="ld_Ej">current price FFF</span>
+<span class="ld_FS">current price FFF</span>
 ]
 
 CURRENCY_MAP = ["$": "USD"]
@@ -290,7 +269,7 @@ COUNTRY = Chile
 PRODUCT = Bread
 
 TITLE = [
-<h2 class="product-card-name text-black font-normal h-[60px] grow leading-5" style="display: -webkit-box; -moz-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">FFF</h2>
+<h2 class="text-base product-card-name text-black font-normal h-[3.75rem] grow leading-5" style="display: -webkit-box; -moz-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis;">FFF</h2>
 ]
 
 PRICE = [
