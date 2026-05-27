@@ -5350,5 +5350,85 @@
     "store_name": "Jumbo",
     "store_country": "Chile",
     "price_per_unit_string": "8720.00 CLP/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "2.87 USD/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "1.09 USD/l"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "HEB",
+    "store_country": "Mexico",
+    "price_per_unit_string": "73.90 MXN/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Billa",
+    "store_country": "Austria",
+    "price_per_unit_string": "1.98 EUR/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Arbuz",
+    "store_country": "Kazakhstan",
+    "price_per_unit_string": "1000.00 KZT/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "67.67 ГРН/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "most_expensive",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "181.07 ГРН/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "47.33 ГРН/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Naivas",
+    "store_country": "Kenya",
+    "price_per_unit_string": "140.00 KES/kg"
+  },
+  {
+    "date": "2026-05-28",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Jumbo",
+    "store_country": "Chile",
+    "price_per_unit_string": "10900.00 CLP/kg"
   }
 ]
