@@ -5758,5 +5758,77 @@
     "store_name": "Walmart",
     "store_country": "USA",
     "price_per_unit_string": "4.61 USD/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "2.87 USD/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "Walmart",
+    "store_country": "USA",
+    "price_per_unit_string": "4.61 USD/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "HEB",
+    "store_country": "Mexico",
+    "price_per_unit_string": "73.90 MXN/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Arbuz",
+    "store_country": "Kazakhstan",
+    "price_per_unit_string": "470.00 KZT/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "149.00 ГРН/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "most_expensive",
+    "product_type_name": "Bread",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "191.07 ГРН/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Milk",
+    "store_name": "ATB Market",
+    "store_country": "Ukraine",
+    "price_per_unit_string": "45.11 ГРН/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Naivas",
+    "store_country": "Kenya",
+    "price_per_unit_string": "146.67 KES/kg"
+  },
+  {
+    "date": "2026-07-01",
+    "variant": "cheapest",
+    "product_type_name": "Bread",
+    "store_name": "Jumbo",
+    "store_country": "Chile",
+    "price_per_unit_string": "5300.00 CLP/kg"
   }
 ]
